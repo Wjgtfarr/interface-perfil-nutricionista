@@ -1,0 +1,379 @@
+/* ==========================================================================
+   LAYOUT PRINCIPAL
+   ========================================================================== */
+
+/* Container principal da tela. Define a ocupação total da viewport */
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   SIDEBAR (Navegação Lateral)
+   ========================================================================== */
+
+/* Container da sidebar com layout Flex vertical. space-between empurra o footer para baixo */
+.sidebar {
+    width: 15%;
+    min-width: 220px;
+    background-color: #15B392;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.sidebar-header {
+    padding: 0 24px;
+    margin-bottom: 48px;
+}
+
+.logo-nutra {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* Agrupador dos links de navegação */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 12px;
+}
+
+/* Estilo padrão para itens do menu */
+.menu-item {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+/* Efeito visual ao interagir com o mouse */
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Estado ativo: destaca o item selecionado alterando cores */
+.menu-item.active {
+    background-color: #FFFFFF;
+    color: #15B392;
+}
+
+.menu-item.active .icon {
+    color: #15B392;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+/* === CARD DE PERFIL INFERIOR (Widget do rodapé da Sidebar) === */
+.sidebar-footer {
+    padding: 0 12px;
+    margin-top: auto;
+    /* Empurra para o final do container pai */
+    margin-bottom: 24px;
+}
+
+.sidebar-profile-card {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    width: 100%;
+}
+
+/* Avatar circular do rodapé */
+.profile-mini-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E2E8F0;
+    color: #64748B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    /* Impede que o círculo seja comprimido */
+    margin-right: 12px;
+}
+
+/* Container para empilhar nome e link */
+.profile-mini-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Ocupa espaço disponível forçando o botão de opções para a direita */
+    overflow: hidden;
+}
+
+.profile-mini-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-mini-link {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-top: 2px;
+    transition: color 0.2s ease;
+}
+
+.profile-mini-link:hover {
+    color: #FFFFFF;
+}
+
+/* Botão de ações (3 pontinhos) */
+.btn-more-options {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+.btn-more-options:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (Main Content)
+   ========================================================================== */
+
+.main-content {
+    flex: 1;
+    /* Ocupa o restante da tela disponível (85%) */
+    padding: 50px 80px;
+    overflow-y: auto;
+    /* Permite scroll se o conteúdo for maior que a tela */
+}
+
+.page-title {
+    color: #1A1A1A;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    color: #64748B;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 32px;
+}
+
+/* Layout de colunas: Container Flex para alinhar o card de foto e o formulário */
+.profile-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* Estilo base para os blocos de conteúdo (Cards) */
+.card-box {
+    background: white;
+    border-radius: 20px;
+    padding: 32px 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Sobrescrita específica para o card da Foto do Perfil (coluna esquerda) */
+.profile-layout>.card-box {
+    width: 260px;
+    flex-shrink: 0;
+    padding: 80px 24px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #1A1A1A;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #F1F5F9;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-icon {
+    font-size: 24px;
+    color: #15B392;
+}
+
+/* ==========================================================================
+   COMPONENTES INTERNOS (Avatar e Formulário)
+   ========================================================================== */
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Círculo do avatar principal */
+.avatar-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748B;
+    font-size: 3rem;
+    font-weight: bold;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btn-upload-photo {
+    background-color: transparent;
+    border: 1px solid #15B392;
+    color: #15B392;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 12px;
+}
+
+.btn-upload-photo:hover {
+    background-color: #15B392;
+    color: white;
+}
+
+.photo-formats-text {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Coluna da direita: formulário */
+.profile-form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #4A4A4A;
+    font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 14px 16px;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background-color: #F8FAFC;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #15B392;
+}
+
+.input-group textarea {
+    resize: vertical;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   BOTÕES (Ações de formulário)
+   ========================================================================== */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.btn-cancel,
+.btn-save {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: transparent;
+    border: 1px solid #15B392;
+    color: #15B392;
+}
+
+.btn-cancel:hover {
+    background-color: rgba(21, 179, 146, 0.05);
+}
+
+.btn-save {
+    background: #15B392;
+    border: none;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #129e80;
+}

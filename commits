@@ -1,0 +1,25 @@
+feat: implementa interface de edicao de perfil do nutricionista
+
+adiciona modulo de edicao de perfil estruturado para o sistema nutra,
+permitindo que o profissional gerencie seus dados cadastrais conforme
+normas do conselho
+
+as implementacoes foram realizadas nos seguintes arquivos:
+- editarPerfil.jsx: cria a logica central de estado do formulario,
+  incluindo validacoes e mascaras para telefone, crn e limitacao de
+  caracteres para a biografia
+- ProfileForm.jsx: desenvolve a estrutura visual dos campos de
+  informacoes pessoais e biografia, utilizando componentes reutilizaveis
+  e organizacao via grid
+- ProfileHeader.jsx: constroi o card lateral de perfil com logica de
+  upload local de imagem, garantindo feedback visual imediato e fallback
+  de inicial para usuarios sem foto
+- Sidebar.jsx: adiciona widget de perfil no rodape, posicionando de forma
+  responsiva os dados do usuario logado, como foto, nome e acoes rapidas
+- editar-perfil.css: aplica estilizaçoes modulares com flexbox e grid,
+  implementando sombras para profundidade e ajustes de border-radius para
+  consistencia geometrica
+
+a criacao deste modulo permite que o profissional nutricionista gerencie
+seus dados cadastrais, garantindo que as informacoes estejam sempre atualizadas e 
+em conformidade com as resolucoes do conselho
